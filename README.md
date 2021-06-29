@@ -5,7 +5,7 @@ This is the on-chain coin-flip chaincode for practical test.
 Due to blockchain's deterministic characteristic, true random cannot be implemented on chain.
 So, Verifiable Random Function (VRF) is applied to create random number for this chaincode.
 
-Unfotunately, VRF is the asset of Chainlink and implemented on-chain. 
+Unfortunately, VRF is the asset of Chainlink and implemented on-chain. 
 Therefore, this chaincode must be deployed to live testnet or mainnet instead of private-local network. [VRF Network config](https://docs.chain.link/docs/vrf-contracts/)
 
 To deploy this chaincode, follows these steps:
@@ -14,7 +14,7 @@ To deploy this chaincode, follows these steps:
 
 [Ref](https://docs.binance.org/smart-chain/developer/deploy/hardhat.html)
 
-### 1. Create `.secret`
+### 1. Create `secret.json`
 Enter your mnemonic words to this file in the root project dir.
 
 ### 2. Install libs
@@ -60,6 +60,7 @@ https://testnet.bscscan.com/address/0xE4083e8e2fA38C8C18c5c8854d87266b06b48a2c#e
 The event is in the format.
 
 ```solidity
+// Event: invoker flip the coin, bet the tail or head (0, 1), then the coin is flipped, and he is winner or loser, proveable by a Chainlink requestId. 
 event FlipCoin(address invoker, CoinFace bet, CoinFace result, bool isWin, uint256 prob, bytes32 requestId);
 ```
 
